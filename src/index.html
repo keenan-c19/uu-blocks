@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Blockly Sample App</title>
+    <!-- STYLES -->
+    <link rel="stylesheet" href="index.css">
+    <!-- SCRIPT -->
+</head>
+<body>
+<table class = "uuTable">
+    <tr>
+        <td colspan = "2">
+            <div class="navbar">
+                <a class="active" href="#"><i class=""></i> {uu_blocks}</a>
+                <a href="#" id="toggleTut"><i class="fa-regular fa-file"></i> tutorials</a>
+                <a href="https://www.ti.com/lit/ug/spmu296/spmu296.pdf?ts=1683227993726&ref_url=https%253A%252F%252Fwww.google.com%252F"><i class="fa-solid fa-circle-info"></i> tm4c123gh6pm</a>
+                <a href="https://developer.arm.com/documentation/101407/0538/About-uVision/Installation" download="keil.pdf"><i class="fa-solid fa-computer"></i> keil</a>
+                <a style="float:right" href="#"><i class="fa-solid fa-arrow-down"></i> download</i></a>
+            </div>
+        </td>
+    </tr>
+    <tr id = "myTable">
+        <td colspan = "2" height="10%">
+            <div class = "container1">
+                <div class = "carousel">
+                    <div class = "slider">
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Lets start off by creating are delay function. This function will tell our
+                                            microcontroller to wait x milliseconds before carrying out the next statement
+                                            to do this drag and drop the "Function No Return" Block from the "Functions"
+                                            category and name the function "delay".
+                                        </p>
+                                    </td>
+                                    <!--
+                                    <td class = "tdContent" width="30%">
+                                        <img src="images/delay.gif" width="100%" height="100%">
+                                    </td>
+                                    -->
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Create a parameter by clicking the plus symbol found on the top left corner of the
+                                            "Function No Return" Block. Give the parameter the type of "int" and the name "ms"
+                                            which is short for milliseconds.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Lets create a variable called count which will hold an integer value. You can do
+                                            this by dragging the "Set Variable" Block found in the "Variables" Category now
+                                            you need assign a value to your count variable. In the "Math" category drag out
+                                            the "Math Arithmetic" Block along with a "Math Number" Block. Give your "Math Number"
+                                            the value "4000".
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Now you need to insert the "Math Number" Block into the "Math Arithmetic"
+                                            Block and select the multiplication symbol using the dropdown field.
+                                            Now we need to call are "count" variable and insert into the second field
+                                            of the "Math Arithmetic" Block. You find the "Get Variable" in the "Variables"
+                                            category. Make sure to use the dropdown field to select the variable "count".
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Retrieve the "Repeat Loop External Value" Block from the "Loop" Category and
+                                            place the "Get Variable" Block as its parameter Make sure to use the dropdown
+                                            field to select the variable "count". Our delay function is now complete,
+                                            and we can later call it on our main program
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Now it's time to configure the TM4C123GH6PM by creating a configuration function.
+                                            Start off by dragging out the "Function Call No Return" Block found in the "Functions"
+                                            category give it a type of "void" and name it "config". No place the "Enable Clk"
+                                            Block found in the "Clk" category and set the Clk to "F". This will enable Port F of
+                                            our microcontroller.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>Now drag and drop three of each of the following Blocks from the "Input/Output" category in your config function</p>
+                                        <p>1. "Set Pin Direction" - with Port F enabled and Pins one, two and three selected</p>
+                                        <p>2. "Enable GPIO Digital - Configurations" with Port F enabled and Pins one, two and three selected</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Place the "Main Function Block" on the playground and place your "config" function call block inside it.
+                                            Retrieve the "While Loop" Block from the "Loop" category and place the block below you function call. Now get the
+                                            "Conditional TRUE/FALSE" Block from the "Logic" Category, set it to true and place it inside the "While Loop" Block as a parameter.
+                                            From the "Onboard LEDs" category take one of each of the "LED" blocks and three "Reset" blocks. Place one of the LED block at the
+                                            beginning of the "While Loop" Block followed by delay function call with a "Math NUmber" field placed inside it with the value of "1000".
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            Place one of the Reset Blocks underneath this function call and repeat the whole process until you have no Blocks
+                                            left. Congratulations you have now created your first ever program for the TM4C123GH6PM microcontroller. Check out the
+                                            <a href="url">tm4c123gh6pm</a> page on how to compile your program using Keil.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <table class = "tableContent">
+                                <tr class = "trContent">
+                                    <td class = "tdContent">
+                                        <p>
+                                            END OF TUTORIAL
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </div>
+                    <div class = "controls">
+            <span class = "arrow left">
+                <i class="material-symbols-outlined">navigate_before</i>
+            </span>
+                        <span class = "arrow right">
+                <i class="material-symbols-outlined">navigate_next</i>
+            </span>
+                        <ul>
+                            <li class = "selected"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+
+        <td width="80%"  id="blocklyArea"></td>
+        <td width="20%"  id  ="blocklyCode"></td>
+
+    </tr>
+</table>
+</body>
+
+<div id="pageContainer" style="position: absolute">
+    <div id="outputPane">
+        <pre id="generatedCode"><code></code></pre>
+        <div id="output"></div>
+    </div>
+</div>
+
+
+<div id="blocklyDiv" style="position: absolute">
+
+</div>
+</body>
+<!-- SCRIPTS -->
+<script src="test.js"></script>
+<script src="index.js"></script>
+<script src="https://kit.fontawesome.com/a9759609fe.js" crossorigin="anonymous"></script>
+</html>
+ß
